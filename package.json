@@ -2,13 +2,16 @@
   "name": "inst-all",
   "version": "1.0.0",
   "description": "Small library that runs NPM install in current directory and sub directories",
-  "main": "index.mjs",
+  "main": "src/index.mjs",
   "bin": {
-    "inst-all": "./index.mjs"
+    "inst-all": "src/index.mjs"
   },
   "scripts": {
-    "start": "node index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:test": "prettier --list-different src/**",
+    "format:write": "prettier --write src/**",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -30,5 +33,10 @@
     "chalk": "^5.2.0",
     "glob": "^10.3.0",
     "ora": "^6.3.1"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "pretty-quick": "^3.1.3"
   }
 }
