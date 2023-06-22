@@ -1,6 +1,4 @@
 name: release
-permissions:
-  content: write
 on:
   push:
     branches:
