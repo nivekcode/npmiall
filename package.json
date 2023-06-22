@@ -1,0 +1,34 @@
+{
+  "name": "inst-all",
+  "version": "1.0.0",
+  "description": "Small library that runs NPM install in current directory and sub directories",
+  "main": "index.mjs",
+  "bin": {
+    "inst-all": "./index.mjs"
+  },
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreuzerk/inst-all.git"
+  },
+  "keywords": [
+    "OS",
+    "Library",
+    "NPM",
+    "install"
+  ],
+  "author": "Kevin Kreuzer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreuzerk/inst-all/issues"
+  },
+  "homepage": "https://github.com/kreuzerk/inst-all#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "glob": "^10.3.0",
+    "ora": "^6.3.1"
+  }
+}
