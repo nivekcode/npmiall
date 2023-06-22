@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node src/index.mjs",
+    "lint": "eslint src/**",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:test": "prettier --list-different src/**",
     "format:write": "prettier --write src/**",
@@ -35,6 +36,7 @@
     "ora": "^6.3.1"
   },
   "devDependencies": {
+    "eslint": "^8.43.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "pretty-quick": "^3.1.3"
