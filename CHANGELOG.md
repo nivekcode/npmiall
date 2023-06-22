@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/kreuzerk/inst-all/compare/v1.0.0...v2.0.0) (2023-06-22)
+
+
+### Features
+
+* 🎸 rename command, adjust default dir & update README ([23792e9](https://github.com/kreuzerk/inst-all/commit/23792e9e4cdee017e23c635de2e16e97348d1808))
+
+
+### BREAKING CHANGES
+
+* 🧨 rename command & adjustment of default directory
+
 # 1.0.0 (2023-06-22)
 
 
