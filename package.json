@@ -4,7 +4,7 @@
   "description": "Small library that runs NPM install in current directory and sub directories",
   "main": "src/index.mjs",
   "bin": {
-    "inst-all": "src/index.mjs"
+    "npmiall": "src/index.mjs"
   },
   "scripts": {
     "start": "node src/index.mjs",

@@ -1,6 +1,14 @@
-# insta-all
+# npmiall
 
 > A simple utility to run npm install in the current directory and all subdirectories.
+
+# Usage
+```
+npx npmiall
+```
+
+This command will start at the current directory and npm install all node modules in the current directory as well as all subdirectories.
+
 
 ## Contributors
 

@@ -4,7 +4,7 @@ import chalk from "chalk";
 import { glob } from "glob";
 import { exec } from "child_process";
 
-const packageJsonPaths = await glob("test-dir/**/package.json", {
+const packageJsonPaths = await glob("./**/package.json", {
   ignore: "**/node_modules/**",
 });
 
