@@ -8,6 +8,8 @@
   },
   "scripts": {
     "start": "node src/index.mjs",
+    "bump-version": "rjp package.json version $VERSION",
+    "build": "copyfiles package.json dist && copyfiles README.md dist && copyfiles LICENSE dist && copyfiles src/** dist",
     "lint": "eslint src/**",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:test": "prettier --list-different src/**",
@@ -25,7 +27,7 @@
     "install"
   ],
   "author": "Kevin Kreuzer",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kreuzerk/inst-all/issues"
   },
@@ -36,9 +38,16 @@
     "ora": "^6.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.43.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
-    "pretty-quick": "^3.1.3"
+    "pretty-quick": "^3.1.3",
+    "replace-json-property": "^1.9.0",
+    "semantic-release": "^21.0.5"
   }
 }
