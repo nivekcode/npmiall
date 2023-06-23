@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/kreuzerk/inst-all/compare/v2.0.0...v2.0.1) (2023-06-23)
+
+
+### Bug Fixes
+
+* 🐛 remove wrong comment in index file ([3cdc691](https://github.com/kreuzerk/inst-all/commit/3cdc691f3530d63fdd5478c5a85925d3cba0bbb9))
+
 # [2.0.0](https://github.com/kreuzerk/inst-all/compare/v1.0.0...v2.0.0) (2023-06-22)
 
 
