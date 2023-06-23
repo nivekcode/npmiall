@@ -1,6 +1,6 @@
 {
   "name": "npmiall",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Small library that runs NPM install in current directory and sub directories",
   "main": "src/index.mjs",
   "bin": {
