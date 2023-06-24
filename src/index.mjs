@@ -40,6 +40,9 @@ function getDirectoryPaths(packageJsonPath) {
     return null;
 }
 
+console.log(chalk.green(`👷: Lean back and relax while npmiall installs node_modules for you!`));
+console.log(chalk.green('===================================================================='));
+
 tasks.run()
     .then(() => {
         console.log(
