@@ -14,15 +14,15 @@ const tasks = new Listr(packageJsonPaths
     .map(directoryPath => {
 
         return {
-            title: `Installing node_modules for directory: ${chalk.underline(p)}`,
+            title: `Installing node_modules for directory: ${chalk.underline(directoryPath)}`,
             task: () => new Promise((resolve, reject) => {
                 exec("npm install", {cwd: directoryPath}, (error) => {
                     if (!error) {
-                        resolve(`Successfully installed node_modules for directory: ${chalk.underline(p)}`);
+                        resolve(`Successfully installed node_modules for directory: ${chalk.underline(directoryPath)}`);
                         resolve();
                     } else {
                         reject(error);
-                        reject(`Failed to install node_modules for directory: ${chalk.underline(p)}`);
+                        reject(`Failed to install node_modules for directory: ${chalk.underline(directoryPath)}`);
                     }
                 });
             })
