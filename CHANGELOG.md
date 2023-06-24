@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/kreuzerk/inst-all/compare/v2.0.1...v2.1.0) (2023-06-24)
+
+
+### Features
+
+* 🎸 improve spinner - migrate from ora to listr ([570552c](https://github.com/kreuzerk/inst-all/commit/570552c5fed845bf0fdb15f56d088b83f8ad1528))
+
 ## [2.0.1](https://github.com/kreuzerk/inst-all/compare/v2.0.0...v2.0.1) (2023-06-23)
 
 
