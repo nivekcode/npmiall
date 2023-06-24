@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/kreuzerk/inst-all/compare/v2.1.0...v2.2.0) (2023-06-24)
+
+
+### Bug Fixes
+
+* 🐛 ignore current working directory ([abaa0ed](https://github.com/kreuzerk/inst-all/commit/abaa0ed078b64fbda66f64a2d677c50003f71090))
+
+
+### Features
+
+* 🎸 improve welcome message ([16907ac](https://github.com/kreuzerk/inst-all/commit/16907acc4072bc0325bf1e8e5786d0983f865879))
+
 # [2.1.0](https://github.com/kreuzerk/inst-all/compare/v2.0.1...v2.1.0) (2023-06-24)
 
 
