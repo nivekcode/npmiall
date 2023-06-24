@@ -10,24 +10,24 @@ const packageJsonPaths = await glob("./**/package.json", {
 
 const tasks = new Listr(packageJsonPaths
     .map(p => getDirectoryPaths(p))
-    .filter(p => p !== null)
-    .map(p => {
+    .filter(directoryPath => directoryPath !== null)
+    .map(directoryPath => {
 
-    return {
-        title: `Installing node_modules for directory: ${chalk.underline(p)}`,
-        task: () => new Promise((resolve, reject) => {
-            exec("npm install", {cwd: directoryPath}, (error) => {
-                if (!error) {
-                    resolve(`Successfully installed node_modules for directory: ${chalk.underline(p)}`);
-                    resolve();
-                } else {
-                    reject(error);
-                    reject(`Failed to install node_modules for directory: ${chalk.underline(p)}`);
-                }
-            });
-        })
-    }
-}), {
+        return {
+            title: `Installing node_modules for directory: ${chalk.underline(p)}`,
+            task: () => new Promise((resolve, reject) => {
+                exec("npm install", {cwd: directoryPath}, (error) => {
+                    if (!error) {
+                        resolve(`Successfully installed node_modules for directory: ${chalk.underline(p)}`);
+                        resolve();
+                    } else {
+                        reject(error);
+                        reject(`Failed to install node_modules for directory: ${chalk.underline(p)}`);
+                    }
+                });
+            })
+        }
+    }), {
     concurrent: true,
 });
 
