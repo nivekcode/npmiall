@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/kreuzerk/inst-all/compare/v2.2.0...v2.2.1) (2023-06-24)
+
+
+### Bug Fixes
+
+* 🐛 compile error ([dd51c81](https://github.com/kreuzerk/inst-all/commit/dd51c812d7135378a6a0d76eaeace3192b62019b))
+
 # [2.2.0](https://github.com/kreuzerk/inst-all/compare/v2.1.0...v2.2.0) (2023-06-24)
 
 
