@@ -1,50 +1,52 @@
 #!/usr/bin/env node
-import ora from "ora";
+import Listr from "listr";
 import chalk from "chalk";
-import { glob } from "glob";
-import { exec } from "child_process";
+import {glob} from "glob";
+import {exec} from "child_process";
 
 const packageJsonPaths = await glob("./**/package.json", {
-  ignore: "**/node_modules/**",
+    ignore: "**/node_modules/**",
 });
 
-let processes = [];
+const tasks = new Listr(packageJsonPaths.map(p => {
+    const directoryPath = getDirectoryPaths(p);
 
-packageJsonPaths.forEach((packageJsonPath) => {
-  const process = new Promise((resolve, reject) => {
+    return {
+        title: `Installing node_modules for directory: ${chalk.underline(p)}`,
+        task: () => new Promise((resolve, reject) => {
+            exec("npm install", {cwd: directoryPath}, (error) => {
+                if (!error) {
+                    resolve(`Successfully installed node_modules for directory: ${chalk.underline(p)}`);
+                    resolve();
+                } else {
+                    reject(error);
+                    reject(`Failed to install node_modules for directory: ${chalk.underline(p)}`);
+                }
+            });
+        })
+    }
+}), {
+    concurrent: true,
+});
+
+function getDirectoryPaths(packageJsonPath) {
     const pathParts = packageJsonPath.split("/");
-    pathParts.pop();
-    const directoryPath = pathParts.join("/");
+    if (pathParts.length > 1) {
+        pathParts.pop();
+        return pathParts.join("/");
+    }
+    return '.';
+}
 
-    const spinner = ora(
-      chalk.blue(
-        `Running npm install for directory ${chalk.underline(packageJsonPath)}`
-      )
-    );
-    spinner.start();
-
-    exec("npm install", { cwd: directoryPath }, (error) => {
-      if (!error) {
-        spinner.succeed();
-        resolve();
-      } else {
-        reject(error);
-        spinner.fail(error.toString());
-      }
+tasks.run()
+    .then(() => {
+        console.log(
+            chalk.green.underline(
+                "👷 node_modules successfully installed for all directories!"
+            )
+        );
+    })
+    .catch((error) => {
+        console.log(chalk.red.underline("👷 oops! something went wrong!"));
+        console.log(chalk.red(error));
     });
-  });
-  processes.push(process);
-});
-
-await Promise.all(processes)
-  .then(() => {
-    console.log(
-      chalk.green.underline(
-        "👷 node_modules successfully installed for all directories!"
-      )
-    );
-  })
-  .catch((error) => {
-    console.log(chalk.red.underline("👷 oops! something went wrong!"));
-    console.log(chalk.red(error));
-  });
