@@ -8,8 +8,10 @@ const packageJsonPaths = await glob("./**/package.json", {
     ignore: "**/node_modules/**",
 });
 
-const tasks = new Listr(packageJsonPaths.map(p => {
-    const directoryPath = getDirectoryPaths(p);
+const tasks = new Listr(packageJsonPaths
+    .map(p => getDirectoryPaths(p))
+    .filter(p => p !== null)
+    .map(p => {
 
     return {
         title: `Installing node_modules for directory: ${chalk.underline(p)}`,
@@ -35,7 +37,7 @@ function getDirectoryPaths(packageJsonPath) {
         pathParts.pop();
         return pathParts.join("/");
     }
-    return '.';
+    return null;
 }
 
 tasks.run()
@@ -48,5 +50,4 @@ tasks.run()
     })
     .catch((error) => {
         console.log(chalk.red.underline("👷 oops! something went wrong!"));
-        console.log(chalk.red(error));
     });
